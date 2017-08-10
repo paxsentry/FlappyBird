@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class BirdScript : MonoBehaviour {
+public class BirdScript : MonoBehaviour
+{
 
    public static BirdScript instance;
 
@@ -13,24 +15,28 @@ public class BirdScript : MonoBehaviour {
    private float bounceSpeed = 4f;
 
    private bool didFlap;
+   private Button flapButton;
 
    public bool isAlive;
 
    private void Awake()
    {
-      if(instance == null)
+      if (instance == null)
       {
          instance = this;
       }
 
       isAlive = true;
+      flapButton = GameObject.FindGameObjectWithTag("FlapButton").GetComponent<Button>();
+      flapButton.onClick.AddListener(() => FlapTheBird());
+
+      SetCameraX();
    }
 
-   void Start () {
-		
-	}
-	
-	void FixedUpdate () {
+   void Start() { }
+
+   void FixedUpdate()
+   {
       if (isAlive)
       {
          Vector3 temp = transform.position;
@@ -43,11 +49,32 @@ public class BirdScript : MonoBehaviour {
             _rigidBody.velocity = new Vector2(0, bounceSpeed);
             _animator.SetTrigger("Flap");
          }
+
+         if (_rigidBody.velocity.y >= 0)
+         {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+         }
+         else
+         {
+            float angle = 0;
+            angle = Mathf.Lerp(0, -90, -_rigidBody.velocity.y / 7);
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+         }
       }
-	}
+   }
 
    public void FlapTheBird()
    {
       didFlap = true;
+   }
+
+   public float GetPositionX()
+   {
+      return transform.position.x;
+   }
+
+   void SetCameraX()
+   {
+      CameraScript.offsetX = (Camera.main.transform.position.x - transform.position.x) - 1f;
    }
 }
