@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BGCollector : MonoBehaviour
 {
@@ -39,7 +38,6 @@ public class BGCollector : MonoBehaviour
 
    void OnTriggerEnter2D(Collider2D target)
    {
-      Debug.Log("Here");
       if (target.tag == "Background")
       {
          Vector3 temp = target.transform.position;

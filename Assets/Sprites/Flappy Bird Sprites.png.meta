@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3675386728db0dd458435c517b6953d7
-timeCreated: 1502134112
+timeCreated: 1502429601
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -32,6 +32,7 @@ TextureImporter:
     21300050: Play
     21300052: HighScore
     21300054: Twitter
+    21300056: Flappy Bird Sprites_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -309,9 +310,9 @@ TextureImporter:
       name: EmptyBox
       rect:
         serializedVersion: 2
-        x: 216
+        x: 214
         y: 597
-        width: 167
+        width: 169
         height: 102
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -458,6 +459,19 @@ TextureImporter:
         height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Flappy Bird Sprites_0
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 520
+        width: 15
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
