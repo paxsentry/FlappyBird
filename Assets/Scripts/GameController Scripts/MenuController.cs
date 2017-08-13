@@ -55,25 +55,23 @@ public class MenuController : MonoBehaviour
          {
             _birds[0].SetActive(false);
             GameController.instance.SetSelectedBird(1);
-
             _birds[GameController.instance.GetSelectedBird()].SetActive(true);
-
          }
       }
       else if (GameController.instance.GetSelectedBird() == 1)
       {
+         _birds[1].SetActive(false);
+
          if (isRedBirdUnlocked)
          {
-            _birds[1].SetActive(false);
             GameController.instance.SetSelectedBird(2);
-            _birds[GameController.instance.GetSelectedBird()].SetActive(true);
          }
          else
          {
-            _birds[1].SetActive(false);
             GameController.instance.SetSelectedBird(0);
-            _birds[GameController.instance.GetSelectedBird()].SetActive(true);
          }
+
+         _birds[GameController.instance.GetSelectedBird()].SetActive(true);
       }
       else if (GameController.instance.GetSelectedBird() == 2)
       {
@@ -81,5 +79,10 @@ public class MenuController : MonoBehaviour
          GameController.instance.SetSelectedBird(0);
          _birds[GameController.instance.GetSelectedBird()].SetActive(true);
       }
+   }
+
+   public void PlayGame()
+   {
+      SceneFader.instance.FadeIn("FlappyBird");
    }
 }
