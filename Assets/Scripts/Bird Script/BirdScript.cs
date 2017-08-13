@@ -92,6 +92,7 @@ public class BirdScript : MonoBehaviour
       if (target.tag == "PipeHolder")
       {
          score++;
+         GameplayController.instance.SetScore(score);
          _audioSource.PlayOneShot(_pointClip);
       }
    }
@@ -105,6 +106,7 @@ public class BirdScript : MonoBehaviour
             isAlive = false;
             _animator.SetTrigger("Died");
             _audioSource.PlayOneShot(_diedClip);
+            GameplayController.instance.PlayerDiedShowScore(score);
          }
       }
    }
